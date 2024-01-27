@@ -1,0 +1,123 @@
+SELECT * FROM [dbo].[tblPerson];
+
+ALTER TABLE tblPerson ADD Salary INT;
+
+ALTER TABLE tblPerson ALTER COLUMN Salary DEC(15,2);
+
+SELECT * FROM [dbo].[tblPerson];
+
+UPDATE tblPerson SET Salary = 100000000 WHERE ID = 1;
+UPDATE tblPerson SET Salary = 200000000 WHERE ID = 2;
+UPDATE tblPerson SET Salary = 300000000 WHERE ID = 3;
+UPDATE tblPerson SET Salary = 400000000 WHERE ID = 4;
+UPDATE tblPerson SET Salary = 500000000 WHERE ID = 5;
+UPDATE tblPerson SET Salary = 600000000 WHERE ID = 6;
+UPDATE tblPerson SET Salary = 700000000 WHERE ID = 7;
+UPDATE tblPerson SET Salary = 800000000 WHERE ID = 8;
+UPDATE tblPerson SET Salary = 900000000 WHERE ID = 9;
+
+SELECT * FROM [dbo].[tblPerson];
+
+SELECT SUM(Salary) FROM tblPerson; 
+SELECT MIN(Salary) FROM tblPerson; 
+SELECT MAX(Salary) FROM tblPerson;
+
+SELECT City, SUM(Salary) AS TotalSalary 
+FROM tblPerson
+GROUP BY City;
+
+SELECT SUM(Salary) AS TotalSalary 
+FROM tblPerson;
+
+SELECT City, Gender,SUM(Salary) AS TotalSalary 
+FROM tblPerson
+GROUP BY City;
+
+SELECT * FROM [dbo].[tblPerson];
+
+ALTER TABLE [dbo].[tblPerson] ADD Gender VARCHAR(250);
+
+SELECT * FROM [dbo].[tblPerson];
+
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 1;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 2;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 3;
+UPDATE [dbo].[tblPerson] SET Gender = 'Female' WHERE ID = 4;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 5;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 6;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 7;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 8;
+UPDATE [dbo].[tblPerson] SET Gender = 'Male' WHERE ID = 9;
+
+SELECT * FROM [dbo].[tblPerson];
+
+SELECT City, Gender,SUM(Salary) AS TotalSalary 
+FROM tblPerson
+GROUP BY City,Gender;
+
+SELECT City, Gender,SUM(Salary) AS TotalSalary 
+FROM tblPerson
+GROUP BY City,Gender
+ORDER BY City;
+
+
+SELECT Gender, City,SUM(Salary) AS TotalSalary 
+FROM tblPerson
+GROUP BY Gender,City
+ORDER BY City;
+
+SELECT COUNT(*) FROM tblPerson;
+
+SELECT COUNT(ID) FROM tblPerson;
+
+SELECT Gender, City,SUM(Salary) AS [Total Salary], COUNT(ID) AS [Total Employees]
+FROM tblPerson
+GROUP BY Gender,City
+ORDER BY City;
+
+SELECT Gender, City,SUM(Salary) AS [Total Salary], COUNT(ID) AS [Total Employees]
+FROM tblPerson
+WHERE Gender = 'Female'
+GROUP BY Gender,City
+ORDER BY City;
+
+SELECT Gender, City,SUM(Salary) AS [Total Salary], COUNT(ID) AS [Total Employees]
+FROM tblPerson
+WHERE Gender = 'Female'
+GROUP BY Gender,City;
+
+SELECT Gender, City,SUM(Salary) AS [Total Salary], COUNT(ID) AS [Total Employees]
+FROM tblPerson
+GROUP BY Gender,City
+HAVING Gender='Male';
+
+SELECT * FROM tblPerson WHERE SUM(Salary) > 100000000.00;
+
+SELECT Gender, City,SUM(Salary) AS [Total Salary], COUNT(ID) AS [Total Employees]
+FROM tblPerson
+GROUP BY Gender,City
+HAVING SUM(Salary) > 100000000.00;
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
